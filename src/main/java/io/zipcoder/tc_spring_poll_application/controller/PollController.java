@@ -4,6 +4,7 @@ import io.zipcoder.tc_spring_poll_application.domain.Poll;
 import io.zipcoder.tc_spring_poll_application.exception.ResourceNotFoundException;
 import io.zipcoder.tc_spring_poll_application.repositories.PollRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class PollController {
 //                .toUri();
 //    }
 
-    @Autowired
+
     private PollRepository pollRepository;
 
     public PollController() {
@@ -36,27 +37,27 @@ public class PollController {
         this.pollRepository = pollRepository;
     }
 
-    @Valid
+
     @RequestMapping(value="/polls", method= RequestMethod.GET)
     public ResponseEntity<Iterable<Poll>> getAllPolls() {
         Iterable<Poll> allPolls = pollRepository.findAll();
         return new ResponseEntity<>(allPolls, HttpStatus.OK);
     }
 
-    @Valid
     @RequestMapping(value="/polls", method=RequestMethod.POST)
     public ResponseEntity<?> createPoll(
-            @RequestBody Poll poll) {
+            @RequestBody @Valid Poll poll) {
         poll = pollRepository.save(poll);
         URI newPollUri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(poll.getId())
                 .toUri();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setLocation(newPollUri);
         return new ResponseEntity<>(newPollUri, HttpStatus.CREATED);
     }
 
-    @Valid
     @RequestMapping(value="/polls/{pollId}", method=RequestMethod.GET)
     public ResponseEntity<?> getPoll(
             @PathVariable Long pollId) {
@@ -66,10 +67,9 @@ public class PollController {
         return new ResponseEntity<> (p, HttpStatus.OK);
     }
 
-    @Valid
     @RequestMapping(value="/polls/{pollId}", method=RequestMethod.PUT)
     public ResponseEntity<?> updatePoll(
-            @RequestBody Poll poll,
+            @RequestBody @Valid Poll poll,
             @PathVariable Long pollId) {
         verifyPoll(pollId);
 
@@ -77,8 +77,7 @@ public class PollController {
         Poll p = pollRepository.save(poll);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-    @Valid
+    
     @RequestMapping(value="/polls/{pollId}", method=RequestMethod.DELETE)
     public ResponseEntity<?> deletePoll(
             @PathVariable Long pollId) {
