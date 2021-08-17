@@ -1,4 +1,7 @@
-package dtos;
+package dtos.error;
+
+import java.util.List;
+import java.util.Map;
 
 public class ErrorDetail {
     String title;
@@ -6,6 +9,7 @@ public class ErrorDetail {
     String detail;
     long timeStamp;
     String developerMessage;
+    Map<String, List<ValidationError>> errors;
 
     public String getTitle() {
         return title;
@@ -45,5 +49,13 @@ public class ErrorDetail {
 
     public void setDeveloperMessage(String developerMessage) {
         this.developerMessage = developerMessage;
+    }
+
+    public Map<String, List<ValidationError>> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(Map<String, List<ValidationError>> errors) {
+        this.errors = errors;
     }
 }

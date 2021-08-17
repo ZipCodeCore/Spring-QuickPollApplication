@@ -32,10 +32,8 @@ public class ComputeResultController {
         Iterable<Vote> allVotes = voteRepository.findVotesByPoll(pollId);
         OptionCount optionCount;
         Integer allVotesCount = 0;
-        //Map<OptionCount, Long> voteCounts = new HashMap<OptionCount, Long>();
         Map<Long, OptionCount> voteCounts = new HashMap<>();
         for (Vote element : allVotes) {
-            //voteResult.setTotalVotes(voteResult.getTotalVotes() + 1);
             allVotesCount++;
             optionCount = voteCounts.get(element.getOption().getId());
             if (optionCount == null) {
