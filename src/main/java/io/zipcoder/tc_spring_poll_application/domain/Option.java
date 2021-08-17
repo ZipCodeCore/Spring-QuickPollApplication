@@ -8,8 +8,18 @@ public class Option {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "OPTION_ID")
     private Long id;
+
+
     @Column(name = "OPTION_VALUE")
     private String value;
+
+    public Option(){}
+
+    public Option(Long id, String value) {
+        this.id = id;
+        this.value = value;
+    }
+
 
     public Long getId() {
         return id;
