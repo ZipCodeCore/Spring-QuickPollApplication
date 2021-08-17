@@ -96,7 +96,7 @@
 * Create a `VoteRepository` interface in the `io.zipcoder.tc_spring_poll_application.repositories` subpackage.
 * `VoteRepository` is a subclass of `CrudRepository<Vote, Long>`
 
-# Part 3 - Controller Implementation
+# Part 3 - io.zipcoder.tc_spring_poll_application.Controller Implementation
 
 * _Controllers_ provides all of the necessary [endpoints](https://en.wikipedia.org/wiki/Web_API#Endpoints) to access and manipulate respective io.zipcoder.tc_spring_poll_application.domain objects.
 	*  REST resources are identified using URI endpoints.
@@ -646,6 +646,6 @@ Size.poll.options=Options must be greater than {2} and less than {1}
 ## Part 6.2 - Spring's Built-in Pagination
 
 * Make use of Spring's built-in page number pagination support by researching `org.springframework.data.repository.PagingAndSortingRepository`.
-* Modify respective `Controller` methods to handle `Pageable` arguments.
+* Modify respective `io.zipcoder.tc_spring_poll_application.Controller` methods to handle `Pageable` arguments.
 * Send a `GET` request to `http://localhost:8080/polls?page=0&size=2` via Postman.
 * Ensure the response is a `JSON` object with pagination-specific information.
