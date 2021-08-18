@@ -7,7 +7,7 @@ public class Vote {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column (name = "VOTE_ID")
     Long id;
 
