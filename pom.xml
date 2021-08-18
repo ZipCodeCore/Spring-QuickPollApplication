@@ -13,6 +13,7 @@
         <version>1.5.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>io.zipcoder.tc_spring_poll_application.QuickPollApplication</start-class>
@@ -44,6 +45,5 @@
             <version>1</version>
         </dependency>
     </dependencies>
-
 
 </project>
