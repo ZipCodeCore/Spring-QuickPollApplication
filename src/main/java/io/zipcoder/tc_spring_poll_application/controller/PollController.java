@@ -43,19 +43,22 @@ public class PollController {
     @RequestMapping(value="/polls/{pollId}", method=RequestMethod.GET)
     public ResponseEntity<?> getPoll(@PathVariable Long pollId) {
         Poll p = pollRepository.findOne(pollId);
-        return new ResponseEntity<> (p, HttpStatus.OK);
+        verifyPoll(pollId);
+        return new ResponseEntity<> (pollId, HttpStatus.OK);
     }
 
     @RequestMapping(value="/polls/{pollId}", method=RequestMethod.PUT)
     public ResponseEntity<?> updatePoll(@Valid @RequestBody Poll poll, @PathVariable Long pollId) {
         // Save the entity
         Poll p = pollRepository.save(poll);
+        verifyPoll(pollId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value="/polls/{pollId}", method=RequestMethod.DELETE)
     public ResponseEntity<?> deletePoll(@PathVariable Long pollId) {
         pollRepository.delete(pollId);
+        verifyPoll(pollId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

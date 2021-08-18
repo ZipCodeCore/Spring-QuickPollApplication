@@ -1,6 +1,7 @@
 package io.zipcoder.tc_spring_poll_application.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Vote {
@@ -11,7 +12,7 @@ public class Vote {
     @Column(name = "VOTE_ID")
     Long Id;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "OPTION_ID")
     Option options;
 
