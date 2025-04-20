@@ -9,3 +9,4 @@ public class QuickPollApplication {
         SpringApplication.run(QuickPollApplication.class, args);
     }
 }
+

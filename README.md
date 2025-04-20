@@ -6,12 +6,12 @@
 # Part 1 - Domain Implementation
 
 * _Domain objects_ are the backbone for an application and contain the [business logic](https://en.wikipedia.org/wiki/Business_logic).
-* Create a sub package of `io.zipcoder.tc_spring_poll_application` named `domain`.
+* Create a sub package of `io.zipcoder.tc_spring_poll_application` named `io.zipcoder.tc_spring_poll_application.domain`.
 
 
 ## Part 1.1 - Create class `Option`
 
-* Create an `Option` class in the `domain` sub-package.
+* Create an `Option` class in the `io.zipcoder.tc_spring_poll_application.domain` sub-package.
 * `Option` class signature is annotated with `@Entity`
 * `Option` has an `id` instance variable of type `Long`
 	* `id` should be `annotated` with
@@ -32,7 +32,7 @@
 
 ## Part 1.2 - Create class `Poll`
 
-* Create a `Poll` class in the `domain` sub-package.
+* Create a `Poll` class in the `io.zipcoder.tc_spring_poll_application.domain` sub-package.
 * `Poll` class signature is annotated with `@Entity`
 * `Poll` has an `id` instance variable of type `Long`
 	* `id` should be `annotated` with
@@ -55,7 +55,7 @@
 
 ## Part 1.3 - Create class `Vote`
 
-* Create a `Vote` class in the `domain` sub-package.
+* Create a `Vote` class in the `io.zipcoder.tc_spring_poll_application.domain` sub-package.
 * `Vote` class signature is annotated with `@Entity`
 * `Vote` has an `id` instance variable of type `Long`
 	* `id` should be `annotated` with
@@ -75,30 +75,30 @@
 
 * _Repositories_ or [Data Access Objects (DAO)](https://en.wikipedia.org/wiki/Data_access_object), provide an abstraction for interacting with _datastores_.
 * Typically DAOs include an interface that provides a set of finder methods such as `findById`, `findAll`, for retrieving data, and methods to persist and delete data.
-* It is customary to have one `Repository` per `domain` object.
-* Create a sub-package of `io.zipcoder.tc_spring_poll_application` named `repositories`.
+* It is customary to have one `Repository` per `io.zipcoder.tc_spring_poll_application.domain` object.
+* Create a sub-package of `io.zipcoder.tc_spring_poll_application` named `io.zipcoder.tc_spring_poll_application.repositories`.
 
 
 ## Part 2.1 - Create interface `OptionRepository`
 
-* Create an `OptionRepository` interface in the `repositories` subpackage.
+* Create an `OptionRepository` interface in the `io.zipcoder.tc_spring_poll_application.repositories` subpackage.
 * `OptionRepository` is a subclass of `CrudRepository<Option, Long>`
 
 
 ## Part 2.2 - Create interface `PollRepository`
 
-* Create a `PollRepository` interface in the `repositories` subpackage.
+* Create a `PollRepository` interface in the `io.zipcoder.tc_spring_poll_application.repositories` subpackage.
 * `PollRepository` is a subclass of `CrudRepository<Poll, Long>`
 
 
 ## Part 2.3 - Create interface `VoteRepository`
 
-* Create a `VoteRepository` interface in the `repositories` subpackage.
+* Create a `VoteRepository` interface in the `io.zipcoder.tc_spring_poll_application.repositories` subpackage.
 * `VoteRepository` is a subclass of `CrudRepository<Vote, Long>`
 
-# Part 3 - Controller Implementation
+# Part 3 - io.zipcoder.tc_spring_poll_application.Controller Implementation
 
-* _Controllers_ provides all of the necessary [endpoints](https://en.wikipedia.org/wiki/Web_API#Endpoints) to access and manipulate respective domain objects.
+* _Controllers_ provides all of the necessary [endpoints](https://en.wikipedia.org/wiki/Web_API#Endpoints) to access and manipulate respective io.zipcoder.tc_spring_poll_application.domain objects.
 	*  REST resources are identified using URI endpoints.
 * Create a sub package of `io.zipcoder.tc_spring_poll_application` named `controller`.
 
@@ -357,7 +357,7 @@ public Iterable<Vote> getVote(@PathVariable Long pollId) {
 # Part 4 - Data Transfer Object (DTO) Implementation
 
 * The final piece remaining for us is the implementation of the ComputeResult resource.
-* Because we don’t have any domain objects that can directly help generate this resource representation, we implement two Data Transfer Objects or DTOs—OptionCount and VoteResult
+* Because we don’t have any io.zipcoder.tc_spring_poll_application.domain objects that can directly help generate this resource representation, we implement two Data Transfer Objects or DTOs—OptionCount and VoteResult
 * Create a sub package of `java` named `dtos`
 
 
@@ -478,14 +478,14 @@ Create a void method in `PollController` called `verifyPoll` that checks if a sp
 
 ## Part 5.3 - Create custom Error Responses
 
-Spring provides some built-in exception handling and error response, but we'll customize it a bit here. Create an `ErrorDetail` class in a new `io.zipcoder.tc_spring_poll_application.dto.error` package to hold relevant information any time an error occurs.
+Spring provides some built-in exception handling and io.zipcoder.tc_spring_poll_application.error response, but we'll customize it a bit here. Create an `ErrorDetail` class in a new `io.zipcoder.tc_spring_poll_application.dto.io.zipcoder.tc_spring_poll_application.error` package to hold relevant information any time an io.zipcoder.tc_spring_poll_application.error occurs.
 
 Fields (Don't forget to provide getters and setters):
 
-- `String title`: a brief title of the error condition, eg: "Validation Failure" or "Internal Server Error"
-- `int status`: the HTTP status code for the current request; redundant but useful for client-side error handling
-- `String detail`: A short, human-readable description of the error that may be presented to a user
-- `long timeStamp`: the time in milliseconds when the error occurred
+- `String title`: a brief title of the io.zipcoder.tc_spring_poll_application.error condition, eg: "Validation Failure" or "Internal Server Error"
+- `int status`: the HTTP status code for the current request; redundant but useful for client-side io.zipcoder.tc_spring_poll_application.error handling
+- `String detail`: A short, human-readable description of the io.zipcoder.tc_spring_poll_application.error that may be presented to a user
+- `long timeStamp`: the time in milliseconds when the io.zipcoder.tc_spring_poll_application.error occurred
 - `String developerMessage`: detailed information such as exception class name or a stack trace useful for developers to debug
 
 
@@ -506,7 +506,7 @@ public ResponseEntity<?> handleResourceNotFoundException(ResourceNotFoundExcepti
 
 
 
-## Part 5.4 - Validating domain entities
+## Part 5.4 - Validating io.zipcoder.tc_spring_poll_application.domain entities
 
 Now it's time to make sure that all objects persisted to the database actually contain valid values. Use the `org.hibernate.validator.constraints.NotEmpty` and `javax.validation.constraints.Size` and `javax.validation.Valid` annotations for validation.
 
@@ -517,7 +517,7 @@ Now it's time to make sure that all objects persisted to the database actually c
 
 ## Part 5.5 - Customizing validation errors
 
-In order to customize validation errors we'll need a class for error information. Create a `ValidationError` class in `io.zipcoder.tc_spring_poll_application.dto.error` with the following fields and appropriate getters and setters:
+In order to customize validation errors we'll need a class for io.zipcoder.tc_spring_poll_application.error information. Create a `ValidationError` class in `io.zipcoder.tc_spring_poll_application.dto.io.zipcoder.tc_spring_poll_application.error` with the following fields and appropriate getters and setters:
 
 - `String code`
 - `String message`
@@ -525,7 +525,7 @@ In order to customize validation errors we'll need a class for error information
 We also need a new field in the `ErrorDetail` class to hold errors. There may be multiple validation errors associated with a request, sometimes more than one of the same type, so this field will be a collection, specifically a `Map<String, List<ValidationError>> errors` field.
 
 
-## Part 5.6 - Create a validation error handler
+## Part 5.6 - Create a validation io.zipcoder.tc_spring_poll_application.error handler
 
 - add below handler to `RestExceptionHandler`
 
@@ -540,8 +540,8 @@ In this handler we need to do the following:
 
 - Create the ErrorDetail object (similar to before)
 - Get the list of field validation errors
-- For each field error, add it to the appropriate list in the ErrorDetail (see below)
-- Return a `ResponseEntity` containing the error detail and the appropriate HTTP status code (`400 Bad Request`)
+- For each field io.zipcoder.tc_spring_poll_application.error, add it to the appropriate list in the ErrorDetail (see below)
+- Return a `ResponseEntity` containing the io.zipcoder.tc_spring_poll_application.error detail and the appropriate HTTP status code (`400 Bad Request`)
 
 ```java
 List<FieldError> fieldErrors =  manve.getBindingResult().getFieldErrors();
@@ -563,7 +563,7 @@ for(FieldError fe : fieldErrors) {
 
 Commonly used strings in your Java program can be removed from the source code and placed in a separate file. This is called externalizing, and is useful for allowing changes to text displayed without impacting actual program logic. One example of where this is done is in internationalization, the practice of providing multilingual support in an application, allowing users to use an application in their native language.
 
-There are two steps needed here to externalize and standardize the validation error messages:
+There are two steps needed here to externalize and standardize the validation io.zipcoder.tc_spring_poll_application.error messages:
 
 - Create a `messages.properties` file in the `src/main/resources` directory with the given properties below
   - `messages.properties` is a key-value file stored in plain text. Your IDE may have a table-based view or show the contents as text
@@ -646,6 +646,6 @@ Size.poll.options=Options must be greater than {2} and less than {1}
 ## Part 6.2 - Spring's Built-in Pagination
 
 * Make use of Spring's built-in page number pagination support by researching `org.springframework.data.repository.PagingAndSortingRepository`.
-* Modify respective `Controller` methods to handle `Pageable` arguments.
+* Modify respective `io.zipcoder.tc_spring_poll_application.Controller` methods to handle `Pageable` arguments.
 * Send a `GET` request to `http://localhost:8080/polls?page=0&size=2` via Postman.
 * Ensure the response is a `JSON` object with pagination-specific information.
