@@ -1,0 +1,32 @@
+			insert into poll (poll_id, question) values (1, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (1, 'Red', 1);
+			insert into poll (poll_id, question) values (2, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (2, 'Orange', 1);
+			insert into poll (poll_id, question) values (3, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (3, 'Yellow', 1);
+			insert into poll (poll_id, question) values (4, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (4, 'Green', 1);
+			insert into poll (poll_id, question) values (5, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (5, 'Blue', 1);
+			insert into poll (poll_id, question) values (6, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (6, 'Indigo', 1);
+			insert into poll (poll_id, question) values (7, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (7, 'Violet', 1);
+			insert into poll (poll_id, question) values (8, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (8, 'Magenta', 1);
+			insert into poll (poll_id, question) values (9, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (9, 'Cyan', 1);
+			insert into poll (poll_id, question) values (10, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (10, 'Purple', 1);
+			insert into poll (poll_id, question) values (11, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (11, 'Pink', 1);
+			insert into poll (poll_id, question) values (12, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (12, 'Grey', 1);
+			insert into poll (poll_id, question) values (13, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (13, 'Black', 1);
+			insert into poll (poll_id, question) values (14, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (14, 'White', 1);
+			insert into poll (poll_id, question) values (15, 'What is your favorite color?');
+			insert into option (option_id, option_value, poll_id) values (15, 'Silver', 1);
+
+

@@ -627,7 +627,7 @@ Size.poll.options=Options must be greater than {2} and less than {1}
 
 * Create a `src/main/resource/import.sql` file with _DML statements_ for populating the database upon bootstrap. The `import.sql` should insert at least 15 polls, each with 3 or more options.
 	* Below is an example of `SQL` statements for creating a single poll with only one option.
-	
+	//DML = data manipulation language statements
 		* Poll Creation
 		
 			```sql
