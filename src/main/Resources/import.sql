@@ -1,0 +1,16 @@
+insert into poll (poll_id, question) values (1, 'Name your favorite superheroes!');
+insert into option (option_id, option_value, poll_id) values (1, 'SpiderMan', 1);
+insert into option (option_id, option_value, poll_id) values (2, 'Batman', 1);
+insert into option (option_id, option_value, poll_id) values (3, 'Iron Man', 1);
+insert into option (option_id, option_value, poll_id) values (4, 'Incredible Hulk', 1);
+insert into option (option_id, option_value, poll_id) values (5, 'The Flash', 1);
+insert into option (option_id, option_value, poll_id) values (6, 'Green Arrow', 1);
+insert into option (option_id, option_value, poll_id) values (7, 'Wolverine', 1);
+insert into option (option_id, option_value, poll_id) values (8, 'Daredevil', 1);
+insert into option (option_id, option_value, poll_id) values (9, 'Thor', 1);
+insert into option (option_id, option_value, poll_id) values (10, 'Superman', 1);
+insert into option (option_id, option_value, poll_id) values (11, 'Vision', 1);
+insert into option (option_id, option_value, poll_id) values (12, 'Doctor Strange', 1);
+insert into option (option_id, option_value, poll_id) values (13, 'Martian Manhunter', 1);
+insert into option (option_id, option_value, poll_id) values (14, 'Vision', 1);
+insert into option (option_id, option_value, poll_id) values (15, 'Gio', 1);
