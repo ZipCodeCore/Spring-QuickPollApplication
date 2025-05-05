@@ -6,12 +6,12 @@
 # Part 1 - Domain Implementation
 
 * _Domain objects_ are the backbone for an application and contain the [business logic](https://en.wikipedia.org/wiki/Business_logic).
-* Create a sub package of `io.zipcoder.tc_spring_poll_application` named `domain`.
+* Create a sub package of `io.zipcoder.tc_spring_poll_application` named `io.zipcoder.tc_spring_poll_application.domain`.
 
 
 ## Part 1.1 - Create class `Option`
 
-* Create an `Option` class in the `domain` sub-package.
+* Create an `Option` class in the `io.zipcoder.tc_spring_poll_application.domain` sub-package.
 * `Option` class signature is annotated with `@Entity`
 * `Option` has an `id` instance variable of type `Long`
 	* `id` should be `annotated` with
@@ -32,7 +32,7 @@
 
 ## Part 1.2 - Create class `Poll`
 
-* Create a `Poll` class in the `domain` sub-package.
+* Create a `Poll` class in the `io.zipcoder.tc_spring_poll_application.domain` sub-package.
 * `Poll` class signature is annotated with `@Entity`
 * `Poll` has an `id` instance variable of type `Long`
 	* `id` should be `annotated` with
@@ -55,7 +55,7 @@
 
 ## Part 1.3 - Create class `Vote`
 
-* Create a `Vote` class in the `domain` sub-package.
+* Create a `Vote` class in the `io.zipcoder.tc_spring_poll_application.domain` sub-package.
 * `Vote` class signature is annotated with `@Entity`
 * `Vote` has an `id` instance variable of type `Long`
 	* `id` should be `annotated` with
@@ -75,37 +75,37 @@
 
 * _Repositories_ or [Data Access Objects (DAO)](https://en.wikipedia.org/wiki/Data_access_object), provide an abstraction for interacting with _datastores_.
 * Typically DAOs include an interface that provides a set of finder methods such as `findById`, `findAll`, for retrieving data, and methods to persist and delete data.
-* It is customary to have one `Repository` per `domain` object.
-* Create a sub-package of `io.zipcoder.tc_spring_poll_application` named `repositories`.
+* It is customary to have one `Repository` per `io.zipcoder.tc_spring_poll_application.domain` object.
+* Create a sub-package of `io.zipcoder.tc_spring_poll_application` named `io.zipcoder.tc_spring_poll_application.repositories`.
 
 
 ## Part 2.1 - Create interface `OptionRepository`
 
-* Create an `OptionRepository` interface in the `repositories` subpackage.
+* Create an `OptionRepository` interface in the `io.zipcoder.tc_spring_poll_application.repositories` subpackage.
 * `OptionRepository` is a subclass of `CrudRepository<Option, Long>`
 
 
 ## Part 2.2 - Create interface `PollRepository`
 
-* Create a `PollRepository` interface in the `repositories` subpackage.
+* Create a `PollRepository` interface in the `io.zipcoder.tc_spring_poll_application.repositories` subpackage.
 * `PollRepository` is a subclass of `CrudRepository<Poll, Long>`
 
 
 ## Part 2.3 - Create interface `VoteRepository`
 
-* Create a `VoteRepository` interface in the `repositories` subpackage.
+* Create a `VoteRepository` interface in the `io.zipcoder.tc_spring_poll_application.repositories` subpackage.
 * `VoteRepository` is a subclass of `CrudRepository<Vote, Long>`
 
 # Part 3 - Controller Implementation
 
-* _Controllers_ provides all of the necessary [endpoints](https://en.wikipedia.org/wiki/Web_API#Endpoints) to access and manipulate respective domain objects.
+* _Controllers_ provides all of the necessary [endpoints](https://en.wikipedia.org/wiki/Web_API#Endpoints) to access and manipulate respective io.zipcoder.tc_spring_poll_application.domain objects.
 	*  REST resources are identified using URI endpoints.
-* Create a sub package of `io.zipcoder.tc_spring_poll_application` named `controller`.
+* Create a sub package of `io.zipcoder.tc_spring_poll_application` named `io.zipcoder.tc_spring_poll_application.controller`.
 
 
 ## Part 3.1 - Create class `PollController`
 
-* Create a `PollController` class in the `controller` sub package.
+* Create a `PollController` class in the `io.zipcoder.tc_spring_poll_application.controller` sub package.
 	* `PollController` signature should be `annotated` with `@RestController`
 
 * `PollController` has a `pollRepository` instance variable of type `PollRepository`  
@@ -357,7 +357,7 @@ public Iterable<Vote> getVote(@PathVariable Long pollId) {
 # Part 4 - Data Transfer Object (DTO) Implementation
 
 * The final piece remaining for us is the implementation of the ComputeResult resource.
-* Because we don’t have any domain objects that can directly help generate this resource representation, we implement two Data Transfer Objects or DTOs—OptionCount and VoteResult
+* Because we don’t have any io.zipcoder.tc_spring_poll_application.domain objects that can directly help generate this resource representation, we implement two Data Transfer Objects or DTOs—OptionCount and VoteResult
 * Create a sub package of `java` named `dtos`
 
 
@@ -444,7 +444,7 @@ public class ComputeResultController {
 ```
 
 
-* We inject an instance of `VoteRepository` into the controller, which is used to retrieve votes for a given poll.
+* We inject an instance of `VoteRepository` into the io.zipcoder.tc_spring_poll_application.controller, which is used to retrieve votes for a given poll.
 * The `computeResult` method takes `pollId` as its parameter.
 * The `@RequestParam` annotation instructs Spring to retrieve the `pollId` value from a HTTP query parameter.
 * The computed results are sent to the client using a newly created instance of `ResponseEntity`.
@@ -491,7 +491,7 @@ Fields (Don't forget to provide getters and setters):
 
 ## Part 5.4 - Create a `@ControllerAdvice`
 
-In this section we add custom handling for the exceptions we created before. A `@ControllerAdvice` is an AOP feature that wraps a controller and adds some functionality when needed. In this case we are adding functionality only when an exception is thrown.
+In this section we add custom handling for the exceptions we created before. A `@ControllerAdvice` is an AOP feature that wraps a io.zipcoder.tc_spring_poll_application.controller and adds some functionality when needed. In this case we are adding functionality only when an exception is thrown.
 
 - Create RestExceptionHandler class annotated with `@ControllerAdvice`
 - Create a handler method with the header shown below
@@ -506,14 +506,14 @@ public ResponseEntity<?> handleResourceNotFoundException(ResourceNotFoundExcepti
 
 
 
-## Part 5.4 - Validating domain entities
+## Part 5.4 - Validating io.zipcoder.tc_spring_poll_application.domain entities
 
 Now it's time to make sure that all objects persisted to the database actually contain valid values. Use the `org.hibernate.validator.constraints.NotEmpty` and `javax.validation.constraints.Size` and `javax.validation.Valid` annotations for validation.
 
 - In the `Poll` class:
   - `options` should be `@Size(min=2, max = 6)`
   - `question` should be `@NotEmpty`
-- To enforce these validations, add `@Valid` annotations to Poll objects in `RequestMapping`-annotated controller methods (there should be 2)
+- To enforce these validations, add `@Valid` annotations to Poll objects in `RequestMapping`-annotated io.zipcoder.tc_spring_poll_application.controller methods (there should be 2)
 
 ## Part 5.5 - Customizing validation errors
 
