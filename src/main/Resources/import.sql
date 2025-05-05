@@ -1,0 +1,16 @@
+insert into poll (poll_id, question) values (1, 'Who is your favorite music artist?');
+insert into option (option_id, option_value, poll_id) values (1, 'Beyonce', 1);
+insert into option (option_id, option_value, poll_id) values (2, 'The Weeknd', 1);
+insert into option (option_id, option_value, poll_id) values (3, 'Drake', 1);
+insert into option (option_id, option_value, poll_id) values (4, 'Rihanna', 1);
+insert into option (option_id, option_value, poll_id) values (5, 'Ariana Grande', 1);
+insert into option (option_id, option_value, poll_id) values (6, 'Miguel', 1);
+insert into option (option_id, option_value, poll_id) values (7, 'Ed Sheeran', 1);
+insert into option (option_id, option_value, poll_id) values (8, 'Demi Lovato', 1);
+insert into option (option_id, option_value, poll_id) values (9, 'Selena Gomez', 1);
+insert into option (option_id, option_value, poll_id) values (10, 'Justin Bieber', 1);
+insert into option (option_id, option_value, poll_id) values (11, 'Bruno Mars', 1);
+insert into option (option_id, option_value, poll_id) values (12, 'Imagine Dragons', 1);
+insert into option (option_id, option_value, poll_id) values (13, 'Halsey', 1);
+insert into option (option_id, option_value, poll_id) values (14, 'J. Cole', 1);
+insert into option (option_id, option_value, poll_id) values (15, 'Kendrick Lamar', 1);
