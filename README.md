@@ -1,12 +1,12 @@
 # Poll Application
 * **Purpose**
-	* to demonstrate the basic functionality of the [Spring Framework](https://spring.io/)
+	* to demonstrate the basic functionality of the [Spring Framework](https://spring.quickpoll.io/)
 	* to demonstrate API testing via [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
 
 # Part 1 - Domain Implementation
 
 * _Domain objects_ are the backbone for an application and contain the [business logic](https://en.wikipedia.org/wiki/Business_logic).
-* Create a sub package of `io.zipcoder.tc_spring_poll_application` named `domain`.
+* Create a sub package of `quickpoll.io.zipcoder.tc_spring_poll_application` named `domain`.
 
 
 ## Part 1.1 - Create class `Option`
@@ -76,7 +76,7 @@
 * _Repositories_ or [Data Access Objects (DAO)](https://en.wikipedia.org/wiki/Data_access_object), provide an abstraction for interacting with _datastores_.
 * Typically DAOs include an interface that provides a set of finder methods such as `findById`, `findAll`, for retrieving data, and methods to persist and delete data.
 * It is customary to have one `Repository` per `domain` object.
-* Create a sub-package of `io.zipcoder.tc_spring_poll_application` named `repositories`.
+* Create a sub-package of `quickpoll.io.zipcoder.tc_spring_poll_application` named `repositories`.
 
 
 ## Part 2.1 - Create interface `OptionRepository`
@@ -100,7 +100,7 @@
 
 * _Controllers_ provides all of the necessary [endpoints](https://en.wikipedia.org/wiki/Web_API#Endpoints) to access and manipulate respective domain objects.
 	*  REST resources are identified using URI endpoints.
-* Create a sub package of `io.zipcoder.tc_spring_poll_application` named `controller`.
+* Create a sub package of `quickpoll.io.zipcoder.tc_spring_poll_application` named `controller`.
 
 
 ## Part 3.1 - Create class `PollController`
@@ -134,7 +134,7 @@ public ResponseEntity<Iterable<Poll>> getAllPolls() {
 
 ### Part 3.1.2 - Testing via Postman
 
-* Ensure that the `start-class` tag in your `pom.xml` encapsulates `io.zipcoder.springdemo.QuickPollApplication`
+* Ensure that the `start-class` tag in your `pom.xml` encapsulates `quickpoll.io.zipcoder.springdemo.QuickPollApplication`
 * Open a command line and navigate to the project's root directory and run this command:
 	* `mvn spring-boot:run`
 * Launch the [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) app and enter the URI `http://localhost:8080/polls` and hit Send.
@@ -358,7 +358,7 @@ public Iterable<Vote> getVote(@PathVariable Long pollId) {
 
 * The final piece remaining for us is the implementation of the ComputeResult resource.
 * Because we don’t have any domain objects that can directly help generate this resource representation, we implement two Data Transfer Objects or DTOs—OptionCount and VoteResult
-* Create a sub package of `java` named `dtos`
+* Create a sub package of `java` named `quickpoll.dtos`
 
 
 ## Part 4.1 - Create class `OptionCount`
@@ -461,7 +461,7 @@ public class ComputeResultController {
 
 ## Part 5.1 - Create `ResourceNotFoundException`
 
-- Create a `exception` package inside of `io.zipcoder.springdemo.QuickPollApplication`
+- Create a `exception` package inside of `quickpoll.io.zipcoder.springdemo.QuickPollApplication`
 - Create a `ResourceNotFoundException` class that extends `RuntimeException`. We'll use this to signal when a requested resource is not found.
 - Annotate the `ResourceNotFoundException` class with `@ResponseStatus(HttpStatus.NOT_FOUND)`. This informs Spring that any request mapping that throws a `ResourceNotFoundException` should result in a `404 NOT FOUND` http status.
 - Implement three constructors
@@ -478,7 +478,7 @@ Create a void method in `PollController` called `verifyPoll` that checks if a sp
 
 ## Part 5.3 - Create custom Error Responses
 
-Spring provides some built-in exception handling and error response, but we'll customize it a bit here. Create an `ErrorDetail` class in a new `io.zipcoder.tc_spring_poll_application.dto.error` package to hold relevant information any time an error occurs.
+Spring provides some built-in exception handling and error response, but we'll customize it a bit here. Create an `ErrorDetail` class in a new `quickpoll.io.zipcoder.tc_spring_poll_application.dto.error` package to hold relevant information any time an error occurs.
 
 Fields (Don't forget to provide getters and setters):
 
@@ -517,7 +517,7 @@ Now it's time to make sure that all objects persisted to the database actually c
 
 ## Part 5.5 - Customizing validation errors
 
-In order to customize validation errors we'll need a class for error information. Create a `ValidationError` class in `io.zipcoder.tc_spring_poll_application.dto.error` with the following fields and appropriate getters and setters:
+In order to customize validation errors we'll need a class for error information. Create a `ValidationError` class in `quickpoll.io.zipcoder.tc_spring_poll_application.dto.error` with the following fields and appropriate getters and setters:
 
 - `String code`
 - `String message`

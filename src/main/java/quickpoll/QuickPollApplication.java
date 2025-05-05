@@ -1,4 +1,4 @@
-package io.zipcoder.tc_spring_poll_application;
+package quickpoll;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
